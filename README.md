@@ -10,3 +10,7 @@ https://github.com/OI-wiki/OI-wiki
 
 https://github.com/lnishan/awesome-competitive-programming
 💎 A curated list of awesome Competitive Programming, Algorithm and Data Structure resources
+
+https://oi-wiki.org/basic/divide-and-conquer/
+Recursion & Divide and Conquer
+
