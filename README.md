@@ -14,3 +14,9 @@ https://github.com/lnishan/awesome-competitive-programming
 https://oi-wiki.org/basic/divide-and-conquer/
 Recursion & Divide and Conquer
 
+https://github.com/topics/competitive-programming
+
+
+https://questdb.io/
+Fast SQL for time series
+
