@@ -20,3 +20,5 @@ https://github.com/topics/competitive-programming
 https://questdb.io/
 Fast SQL for time series
 
+https://rieckpil.de/reuse-containers-with-testcontainers-for-fast-integration-tests/
+Site with many useful links regarding UTs
