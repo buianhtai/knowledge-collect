@@ -22,3 +22,6 @@ Fast SQL for time series
 
 https://rieckpil.de/reuse-containers-with-testcontainers-for-fast-integration-tests/
 Site with many useful links regarding UTs
+
+http://carlcheo.com/compsci
+40 Key Computer Science Concepts Explained In Layman’s Terms
