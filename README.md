@@ -25,3 +25,9 @@ Site with many useful links regarding UTs
 
 http://carlcheo.com/compsci
 40 Key Computer Science Concepts Explained In Layman’s Terms
+
+Redis author blog 
+http://antirez.com/latest/0
+
+Designing Data-Intensive Applications author blogs
+https://martin.kleppmann.com/2021/04/14/goodbye-gpl.html
