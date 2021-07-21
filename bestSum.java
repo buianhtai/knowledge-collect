@@ -1,4 +1,5 @@
 Given an array --> return the minimun 
+///https://www.youtube.com/watch?v=oBt53YbR9Kk&t=7739s
 
     public static void main(String[] args) {
         System.out.println(bestSum(new int[]{5,3,4,7}, 7)); //--> [7]
