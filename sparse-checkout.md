@@ -2,7 +2,7 @@ Clone một phần repo với sparse-checkout
 Khi sử dụng Git để quản lý source code, sẽ có những lúc chúng ta cần checkout về một phần nhỏ của repo, thay vì toàn bộ repo đó. Ví dụ khi làm việc trên một monorepo rất to, nhưng bạn chỉ cần phụ trách một module rất nhỏ.
 
 Lấy ví dụ một monorepo dùng chung cho cả backend, frontend và mobile team, mỗi team có 3 project là lemon, orange và watermelon, cấu trúc như sau:
-
+```
 ├── backend
 │   ├── lemon
 │   ├── orange
@@ -15,6 +15,7 @@ Lấy ví dụ một monorepo dùng chung cho cả backend, frontend và mobile 
     ├── lemon-app
     ├── orange-app
     └── watermelon-app
+```
 Lưu ý khi mình nói monorepo, thì nó là monorepo, tất cả mọi project đều thuộc cùng 1 git repository chứ không có submodule gì hết nhé.
 
 Bạn là một frontend developer thuộc team orange, để làm việc thì bạn chỉ cần 2 thư mục backend/orange và frontend/orange-ui. Không có lý do gì để bạn phải clone toàn bộ repository trên. Để rồi mỗi lần pull code là phải ngồi chờ git nó pull luôn cả những project mà mình không cần làm.
