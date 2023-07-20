@@ -1,46 +1,49 @@
-public static void main(String[] agrs) {
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import lombok.Builder;
+import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 
-        final Map<Integer, Map<String, Integer>> orderByOrderIdAndAccountMap = new HashMap<>();
+@Slf4j
+public class MapWitMerge {
 
-        List<Order> orders =
-                Arrays.asList(
-                        Order.builder().orderId(1).accountId("01").total(10).build(),
-                        Order.builder().orderId(1).accountId("02").total(5).build(),
-                        Order.builder().orderId(2).accountId("02").total(10).build(),
-                        Order.builder().orderId(1).accountId("04").total(1).build(),
-                        Order.builder().orderId(1).accountId("02").total(7).build()
-                );
-        orders.forEach(order -> {
-            int totalCount = order.total;
-            HashMap<String, Integer> schoolSaleMap = new java.util.HashMap<>();
-            schoolSaleMap.put(order.accountId, totalCount);
-            orderByOrderIdAndAccountMap.merge(order.orderId, schoolSaleMap,
-                    (old, current) -> {
-                        old.merge(order.getAccountId(), totalCount, Integer::sum);
-                        return old;
-                    });
-        });
-        log.debug("Map with merge {}", orderByOrderIdAndAccountMap);
-    }
+  public static void main(String[] agrs) {
 
-    @Builder
-    @Data
-    public static class Order {
-        Integer orderId;
-        String accountId;
-        Integer total;
-    }
+    final Map<Integer, Map<String, Integer>> saleSumaryByOderId = new HashMap<>();
 
-default V merge(K key, V value, BiFunction<V, V, V> remappingFunction) {
-    V oldValue = get(key);
-    V newValue = (oldValue == null) ? value :
-               remappingFunction.apply(oldValue, value);
-    if (newValue == null) {
-        remove(key);
-    } else {
-        put(key, newValue);
-    }
-    return newValue;
+    List<Order> orders =
+        Arrays.asList(
+            Order.builder().orderId(1).accountId("01").total(10).build(),
+            Order.builder().orderId(1).accountId("02").total(5).build(),
+            Order.builder().orderId(2).accountId("02").total(10).build(),
+            Order.builder().orderId(1).accountId("04").total(1).build(),
+            Order.builder().orderId(1).accountId("02").total(7).build()
+        );
+    orders.forEach(order -> {
+      int totalCount = order.total;
+      HashMap<String, Integer> saleSummaryByAccount = new java.util.HashMap<>();
+      saleSummaryByAccount.put(order.accountId, totalCount);
+      
+      saleSumaryByOderId.merge(order.orderId, saleSummaryByAccount,
+          (old, current) -> {
+            old.merge(order.getAccountId(), totalCount, Integer::sum);
+            return old;
+          });
+    });
+    log.debug("Map with merge {}", saleSumaryByOderId);
+          // Map with merge {1={01=10, 02=12, 04=1}, 2={02=10}}
+  }
+
+  @Builder
+  @Data
+  public static class Order {
+
+    Integer orderId;
+    String accountId;
+    Integer total;
+  }
+
+
 }
-    
-    ///Map with merge {1={01=10, 02=12, 04=1}, 2={02=10}}
